@@ -4,7 +4,7 @@ Standardised firmware for the JTW Trident GTR v2, for earlier models of the GTR 
 
 **Instructions**
 
-This repository contains the firmware for all types of Trident mount. The Manticore has two processors, it's necessary to upload OnStepX to the primary processer & the SWS to the secondary controller. Be sure to upload the correct version for the mount. Unzip the entire folder for the uploader as it requires access to the contents of the /bin and /esptool directories. Flash the OnStepX firmware first and then the SWS firmware, following on-screen prompts. 
+This repository contains the firmware for all types of Trident mount. The Manticore has two processors, it's necessary to upload OnStepX to the primary processor & the SWS to the secondary processor. Be sure to upload the correct version for the mount. Unzip the entire folder for the uploader as it requires access to the contents of the /bin and /esptool directories. Flash the OnStepX firmware first and then the SWS firmware, following on-screen prompts. 
 
 **Mount Versions & Firmware Required**
 
