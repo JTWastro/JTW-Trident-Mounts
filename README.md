@@ -1,6 +1,6 @@
 **JTW Trident Firmware**
 
-Standardised firmware for the JTW Trident GTR v2, for earlier models of the GTR or P75 mounts please email us first to check. 
+Standardised firmware for the JTW Trident GTR v2, for earlier models of the GTR or P75 mounts please email us first to check. To download the firmware click the green '<> Code' button and select the 'Download ZIP' option. 
 
 **Instructions**
 
