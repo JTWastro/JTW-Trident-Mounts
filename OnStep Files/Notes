@@ -1,1 +1,4 @@
 Instructions for compiling OnStepX - https://onstep.groups.io/g/main/wiki/32776
+
+For mounts with homing use Expressif ESP32 board manager version 2.0.17
+For mounts with encoders use Expressif ESP32 board manager version 2.0.15
