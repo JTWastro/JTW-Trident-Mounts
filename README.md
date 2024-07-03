@@ -10,7 +10,7 @@ This repository contains the firmware for all types of Trident mount. The Mantic
 
 Trident GTR with homing 
 - GTR Homing (OnStepX)
-- SWS Homing
+- SWS
 
 Trident GTR with 24-bit encoders
 - GTR 24-bit Encoders (OnStepX)
@@ -18,7 +18,7 @@ Trident GTR with 24-bit encoders
   
 Trident P75 with Manticore
 - P75 Manticore (OnStepX)
-- SWS Homing
+- SWS
 
 **Notes**
 
