@@ -96,9 +96,9 @@
 #define ENCODER_ECM_LOW_PASS_ORDER 5
 #define ENCODER_ECM_LOW_PASS_POINTS 20
 
-#define AXIS1_ENCODER           JTW_24BIT
+#define AXIS1_ENCODER           JTW_26BIT
 #define AXIS1_ENCODER_REVERSE          ON //
-#define AXIS1_ENCODER_COUNTS_PER_DEGREE 46603.377778
+#define AXIS1_ENCODER_COUNTS_PER_DEGREE 186413.511111 
 #define AXIS1_MOTOR_STEPS_PER_DEGREE 25600 // 
 #define AXIS1_SYNC_THRESHOLD_DEGREES  5.0 // in degrees (converts to _SYNC_THRESHOLD)
 #define AXIS1_TARGET_TOLERANCE        5.0 // in arc-seconds
@@ -112,16 +112,16 @@
 #define AXIS1_SERVO_FLTR_MEAS_U         8
 #define AXIS1_SERVO_FLTR_VARIANCE    0.25
 #define AXIS1_PID_SENSITIVITY           5 // in % power to using 100% of pid set two (_GOTO)
-#define AXIS1_PID_P                   4.0 // P = proportional
-#define AXIS1_PID_I                   0.2 // I = integral
-#define AXIS1_PID_D                  0.01 // D = derivative
-#define AXIS1_PID_P_GOTO              2.0 // P = proportional
-#define AXIS1_PID_I_GOTO              0.1 // I = integral
+#define AXIS1_PID_P                   0.5 // P = proportional
+#define AXIS1_PID_I                   0.1 // I = integral
+#define AXIS1_PID_D                 0.001 // D = derivative
+#define AXIS1_PID_P_GOTO             0.25 // P = proportional
+#define AXIS1_PID_I_GOTO             0.02 // I = integral
 #define AXIS1_PID_D_GOTO            0.001 // D = derivative
 
-#define AXIS2_ENCODER           JTW_24BIT
+#define AXIS2_ENCODER           JTW_26BIT
 #define AXIS2_ENCODER_REVERSE          ON //
-#define AXIS2_ENCODER_COUNTS_PER_DEGREE 46603.377778
+#define AXIS2_ENCODER_COUNTS_PER_DEGREE 186413.511111
 #define AXIS2_MOTOR_STEPS_PER_DEGREE 25600 // 
 #define AXIS2_SYNC_THRESHOLD_DEGREES  5.0 // in degrees (converts to _SYNC_THRESHOLD)
 #define AXIS2_TARGET_TOLERANCE        5.0 // in arc-seconds
@@ -133,11 +133,11 @@
 #define AXIS2_SERVO_FLTR_MEAS_U         8
 #define AXIS2_SERVO_FLTR_VARIANCE    0.25
 #define AXIS2_PID_SENSITIVITY           5 // in % power to using 100% of pid set two (_GOTO)
-#define AXIS2_PID_P                   4.0 // P = proportional
-#define AXIS2_PID_I                   0.2 // I = integral
-#define AXIS2_PID_D                  0.01 // D = derivative
-#define AXIS2_PID_P_GOTO              2.0 // P = proportional
-#define AXIS2_PID_I_GOTO              0.1 // I = integral
+#define AXIS2_PID_P                   0.5 // P = proportional
+#define AXIS2_PID_I                   0.1 // I = integral
+#define AXIS2_PID_D                 0.001 // D = derivative
+#define AXIS2_PID_P_GOTO             0.25 // P = proportional
+#define AXIS2_PID_I_GOTO             0.02 // I = integral
 #define AXIS2_PID_D_GOTO            0.001 // D = derivative
 
 
