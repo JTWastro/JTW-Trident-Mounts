@@ -112,11 +112,11 @@
 #define AXIS1_SERVO_FLTR_MEAS_U         8
 #define AXIS1_SERVO_FLTR_VARIANCE    0.25
 #define AXIS1_PID_SENSITIVITY           5 // in % power to using 100% of pid set two (_GOTO)
-#define AXIS1_PID_P                   4.0 // P = proportional
-#define AXIS1_PID_I                   0.2 // I = integral
-#define AXIS1_PID_D                  0.01 // D = derivative
-#define AXIS1_PID_P_GOTO              2.0 // P = proportional
-#define AXIS1_PID_I_GOTO              0.1 // I = integral
+#define AXIS1_PID_P                   0.5 // P = proportional
+#define AXIS1_PID_I                   0.1 // I = integral
+#define AXIS1_PID_D                 0.001 // D = derivative
+#define AXIS1_PID_P_GOTO             0.25 // P = proportional
+#define AXIS1_PID_I_GOTO             0.02 // I = integral
 #define AXIS1_PID_D_GOTO            0.001 // D = derivative
 
 #define AXIS2_ENCODER           JTW_24BIT
@@ -133,11 +133,11 @@
 #define AXIS2_SERVO_FLTR_MEAS_U         8
 #define AXIS2_SERVO_FLTR_VARIANCE    0.25
 #define AXIS2_PID_SENSITIVITY           5 // in % power to using 100% of pid set two (_GOTO)
-#define AXIS2_PID_P                   4.0 // P = proportional
-#define AXIS2_PID_I                   0.2 // I = integral
-#define AXIS2_PID_D                  0.01 // D = derivative
-#define AXIS2_PID_P_GOTO              2.0 // P = proportional
-#define AXIS2_PID_I_GOTO              0.1 // I = integral
+#define AXIS2_PID_P                   0.5 // P = proportional
+#define AXIS2_PID_I                   0.1 // I = integral
+#define AXIS2_PID_D                 0.001 // D = derivative
+#define AXIS2_PID_P_GOTO             0.25 // P = proportional
+#define AXIS2_PID_I_GOTO             0.02 // I = integral
 #define AXIS2_PID_D_GOTO            0.001 // D = derivative
 
 
