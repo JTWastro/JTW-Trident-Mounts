@@ -38,6 +38,7 @@
 #define STA_SN_MASK       {255,255,255,0} // ..55,255,0}, Wifi Station/Ethernet SUBNET Mask.                                  Adjust
 #define DISPLAY_WEATHER                ON // website, display weather
 #define DISPLAY_INTERNAL_TEMPERATURE   ON // website, display internal MCU temperature
+#define HOME_SWITCH_DIRECTION_CONTROL  ON // website, display home switch reversal
 
 // PINMAP ------------------------------------------------- see https://onstep.groups.io/g/main/wiki/Configuration_Controller#PINMAP
 #define PINMAP                  MANTICORE //    OFF, Choose from: MiniPCB, MiniPCB2, MaxPCB2, MaxESP3, CNC3, STM32Blue,      <-Req'd
