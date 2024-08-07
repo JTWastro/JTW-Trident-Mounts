@@ -43,6 +43,7 @@
 #define DISPLAY_SERVO_MONITOR          ON //    OFF, ON to display the servo monitor for OnStepX servos (any axis.)           Option
 #define DISPLAY_SERVO_ORIGIN_CONTROLS  ON //    OFF, ON to display control to set the absolute encoder origin for servos.     Option
 #define DISPLAY_SERVO_CALIBRATION      ON //    OFF, ON to display the servo calibration controls for OnStepX (any axis.)     Option
+#define HOME_SWITCH_DIRECTION_CONTROL  ON // website, display home switch reversal
 
 // ENCODER SUPPORT -----------------------------------------------------------------------------------------------------------------
 // Some of these settings are stored in NV (EEPROM) as the default values when first uploaded.  Later changes below may be

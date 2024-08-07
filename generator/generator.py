@@ -320,6 +320,15 @@ choices = {
             'desc': 'GTR defaults',
             'item': 'HIGH',
             'elig': 'G'}]},
+    'home_switch': {
+        'desc': 'home sensor direction configuration display in SWS',
+        'items': [{
+            'desc': 'Home sensor direction',
+            'item': 'OFF',
+            'elig': 'G'}, {
+            'desc': 'GTR defaults',
+            'item': 'ON',
+            'elig': 'G'}]},
     'compensation': {
         'desc': 'Do you want to enable tracking compensation (this is configurable at runtime)',
         'items': [{
@@ -436,6 +445,7 @@ def top_level():
             config['pec_spwr'] = choices['pec_spwr']['items'][1]['item']
             config['pec_sense'] = choices['pec_sense']['items'][1]['item']
             config['home_sense'] = choices['home_sense']['items'][1]['item']
+            config['home_switch'] = choices['home_switch']['items'][1]['item']
     if config['model'] == 'P75':
         config['encoder'] = render_menu(choices['encoder'], 'P', type='choice')
         if config['encoder'] == 'AS37_H39B_B':

@@ -41,6 +41,7 @@
 #define DISPLAY_SERVO_MONITOR          $monitor // website, display servo monitor
 #define DISPLAY_SERVO_ORIGIN_CONTROLS  $origin // website, display servo absolute encoder origin controls
 #define DISPLAY_SERVO_CALIBRATION      $calibration // website, display servo RA axis calibration controls
+#define HOME_SWITCH_DIRECTION_CONTROL  $home_switch // website, display home switch reversal
 
 
 // PINMAP ------------------------------------------------- see https://onstep.groups.io/g/main/wiki/Configuration_Controller#PINMAP
