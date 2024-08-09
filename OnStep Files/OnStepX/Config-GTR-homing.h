@@ -108,6 +108,7 @@
 
 #define AXIS1_SENSE_HOME             HIGH //    OFF, HIGH or LOW enables & state clockwise home position, as seen from front. Option
 #define AXIS1_SENSE_HOME_OFFSET         0 //      0, Default offset in arc-seconds to home from the sense position.           Option
+#define HOME_OFFSET_RANGE_AXIS1    648000 //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
 #define AXIS1_SENSE_LIMIT_MIN LIMIT_SENSE // ...NSE, HIGH or LOW state on limit sense switch stops movement.                  Option
 #define AXIS1_SENSE_LIMIT_MAX LIMIT_SENSE // ...NSE, HIGH or LOW state on limit sense switch stops movement.                  Option
                                           //         Digital, optionally add: |HYST(n) Where n=0..1023 stability time in ms.
@@ -144,6 +145,7 @@
 
 #define AXIS2_SENSE_HOME             HIGH //    OFF, HIGH or LOW enables & state clockwise home position, as seen from above. Option
 #define AXIS2_SENSE_HOME_OFFSET         0 //      0, Default offset in arc-seconds to home from the sense position.           Option
+#define HOME_OFFSET_RANGE_AXIS2    648000 //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
 #define AXIS2_SENSE_LIMIT_MIN LIMIT_SENSE // ...NSE, HIGH or LOW state on limit sense switch stops movement.                  Option
 #define AXIS2_SENSE_LIMIT_MAX LIMIT_SENSE // ...NSE, HIGH or LOW state on limit sense switch stops movement.                  Option
 
@@ -170,10 +172,12 @@
 #define MOUNT_ENABLE_IN_STANDBY        ON //    OFF, ON Enables mount motor drivers while in standby.                         Infreq
 
 // TIME AND LOCATION ---------------------------------------------- see https://onstep.groups.io/g/main/wiki/Configuration_Mount#TLS
-#define TIME_LOCATION_SOURCE       DS3231 //    OFF, DS3231 (I2C,) SD3031 (I2C,) TEENSY (T3.2 etc,) GPS, or NTP source.       Option
+#define TIME_LOCATION_SOURCE          GPS //    OFF, DS3231 (I2C,) SD3031 (I2C,) TEENSY (T3.2 etc,) GPS, or NTP source.       Option
                                           //         Provides Date/Time, and if available, PPS & Lat/Long also.
 #define TIME_LOCATION_PPS_SENSE       OFF //    OFF, HIGH senses PPS (pulse per second,) signal rising edge, or use LOW for   Option
                                           //         falling edge, or use BOTH for rising and falling edges.
+                                          //         Better tracking accuracy especially for Mega2560's w/ceramic resonator.
+#define TIME_LOCATION_SOURCE_FALLBACK DS3231 // OFF, alternate TLS, must be differnet than above and not GPS or NTP           Option
 
 // STATUS ------------------------------------------------------ see https://onstep.groups.io/g/main/wiki/Configuration_Mount#STATUS
 #define STATUS_MOUNT_LED              OFF //    OFF, ON Flashes proportional to rate of movement or solid on for slews.       Option

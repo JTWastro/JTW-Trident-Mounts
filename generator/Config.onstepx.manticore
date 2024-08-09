@@ -182,6 +182,7 @@
 #define AXIS1_POWER_DOWN              OFF //    OFF, ON Powers off 30sec after movement stops or 10min after last<=1x guide.  Infreq
 
 #define AXIS1_SENSE_HOME              $home_sense //    OFF, HIGH or LOW enables & state clockwise home position, as seen from front. Option
+#define HOME_OFFSET_RANGE_AXIS1    $home_range //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
 #define AXIS1_SENSE_LIMIT_MIN LIMIT_SENSE // ...NSE, HIGH or LOW state on limit sense switch stops movement.                  Option
 #define AXIS1_SENSE_LIMIT_MAX LIMIT_SENSE // ...NSE, HIGH or LOW state on limit sense switch stops movement.                  Option
                                           //         Digital, optionally add: |HYST(n) Where n=0..1023 stability time in ms.
@@ -217,6 +218,7 @@
 #define AXIS2_POWER_DOWN              OFF //    OFF, ON Powers off 30sec after movement stops or 10min after last<=1x guide.  Option
 
 #define AXIS2_SENSE_HOME              $home_sense //    OFF, HIGH or LOW enables & state clockwise home position, as seen from above. Option
+#define HOME_OFFSET_RANGE_AXIS2    $home_range //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
 #define AXIS2_SENSE_LIMIT_MIN LIMIT_SENSE // ...NSE, HIGH or LOW state on limit sense switch stops movement.                  Option
 #define AXIS2_SENSE_LIMIT_MAX LIMIT_SENSE // ...NSE, HIGH or LOW state on limit sense switch stops movement.                  Option
 
@@ -245,6 +247,7 @@
 #define TIME_LOCATION_PPS_SENSE       $pps_detect //    OFF, HIGH senses PPS (pulse per second,) signal rising edge, or use LOW for   Option
                                           //         falling edge, or use BOTH for rising and falling edges.
                                           //         Better tracking accuracy especially for Mega2560's w/ceramic resonator.
+#define TIME_LOCATION_SOURCE_FALLBACK $tls_fallback // OFF, alternate TLS, must be differnet than above and not GPS or NTP           Option
 
 // STATUS ------------------------------------------------------ see https://onstep.groups.io/g/main/wiki/Configuration_Mount#STATUS
 #define STATUS_MOUNT_LED               ON //    OFF, ON Flashes proportional to rate of movement or solid on for slews.       Option

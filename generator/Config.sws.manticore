@@ -44,6 +44,8 @@
 #define DISPLAY_SERVO_ORIGIN_CONTROLS  $origin //    OFF, ON to display control to set the absolute encoder origin for servos.     Option
 #define DISPLAY_SERVO_CALIBRATION      $calibration //    OFF, ON to display the servo calibration controls for OnStepX (any axis.)     Option
 #define HOME_SWITCH_DIRECTION_CONTROL  $home_switch // website, display home switch reversal
+#define HOME_OFFSET_RANGE_AXIS1    $home_range //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
+#define HOME_OFFSET_RANGE_AXIS2    $home_range //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
 
 // ENCODER SUPPORT -----------------------------------------------------------------------------------------------------------------
 // Some of these settings are stored in NV (EEPROM) as the default values when first uploaded.  Later changes below may be
