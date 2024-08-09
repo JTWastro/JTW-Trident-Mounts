@@ -269,6 +269,15 @@ choices = {
             'desc': 'I have a GPS dongle connected to the AUX port. This is not recommended at this time: the GPS can take a long time to obtain a fix and OnStepX will timeout and not retry',
             'item': 'GPS',
             'elig': 'M'}]},
+    'tls_fallback': {
+        'desc': 'TLS method fallback if GPS or NTP fails? ( this only applies to GPS equipped mounts on the Manticore)',
+        'items': [{
+            'desc': 'No Fallback',
+            'item': 'OFF',
+            'elig': 'M'}, {
+            'desc': 'I want to use the onboard realtime clock. This is the preferred option',
+            'item': 'DS3231',
+            'elig': 'A'}]},
     'pps': {
         'desc': 'Do you want to enable PPS detection? ( this only applies to GPS equipped mounts on the Manticore)',
         'items': [{
@@ -328,6 +337,15 @@ choices = {
             'elig': 'G'}, {
             'desc': 'GTR defaults',
             'item': 'ON',
+            'elig': 'G'}]},
+    'home_range': {
+        'desc': 'home sensor offset range amplitude configuration, default is 7200 can be confiugred up to 648000 (180) for homing GTRs with side by side setups',
+        'items': [{
+            'desc': 'Home sensor offset range',
+            'item': '7200',
+            'elig': 'G'}, {
+            'desc': 'GTR defaults',
+            'item': '648000',
             'elig': 'G'}]},
     'compensation': {
         'desc': 'Do you want to enable tracking compensation (this is configurable at runtime)',
@@ -446,6 +464,7 @@ def top_level():
             config['pec_sense'] = choices['pec_sense']['items'][1]['item']
             config['home_sense'] = choices['home_sense']['items'][1]['item']
             config['home_switch'] = choices['home_switch']['items'][1]['item']
+            config['home_range'] = choices['home_range']['items'][1]['item']
     if config['model'] == 'P75':
         config['encoder'] = render_menu(choices['encoder'], 'P', type='choice')
         if config['encoder'] == 'AS37_H39B_B':
@@ -460,6 +479,7 @@ def top_level():
         config['weather_mode'] = render_menu(choices['weather_mode'], 'M', type='choice')
         config['tls'] = render_menu(choices['tls'], 'M', type='choice')
         if config['tls'] == 'GPS':
+            config['tls_fallback'] = choices['tls_fallback']['items'][1]['item']
             config['pps'] = render_menu(choices['pps'], 'T', type='choice')
             if config['pps'] == 'ON':
                 config['pps_detect'] = render_menu(choices['pps_detect'], 'T', type='choice')
