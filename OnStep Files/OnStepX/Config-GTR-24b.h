@@ -118,7 +118,7 @@
 #define AXIS1_SERVO_FLTR           KALMAN 
 #define AXIS1_SERVO_FLTR_MEAS_U         8
 #define AXIS1_SERVO_FLTR_VARIANCE    0.25
-#define AXIS1_PID_SENSITIVITY           5 // in % power to using 100% of pid set two (_GOTO)
+#define AXIS1_PID_SENSITIVITY           0 // in % power to using 100% of pid set two (_GOTO)
 #define AXIS1_PID_P                   0.5 // P = proportional
 #define AXIS1_PID_I                   0.1 // I = integral
 #define AXIS1_PID_D                 0.001 // D = derivative
@@ -139,7 +139,7 @@
 #define AXIS2_SERVO_FLTR           KALMAN 
 #define AXIS2_SERVO_FLTR_MEAS_U         8
 #define AXIS2_SERVO_FLTR_VARIANCE    0.25
-#define AXIS2_PID_SENSITIVITY           5 // in % power to using 100% of pid set two (_GOTO)
+#define AXIS2_PID_SENSITIVITY           0 // in % power to using 100% of pid set two (_GOTO)
 #define AXIS2_PID_P                   0.5 // P = proportional
 #define AXIS2_PID_I                   0.1 // I = integral
 #define AXIS2_PID_D                 0.001 // D = derivative
