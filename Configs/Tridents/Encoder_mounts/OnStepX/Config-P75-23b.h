@@ -16,7 +16,7 @@
 // =================================================================================================================================
 // CONTROLLER ======================================================================================================================
 
-#define CONFIG_NAME "JTW Trident GTR - 24 bit"
+#define CONFIG_NAME "JTW Trident 23-bit"
 
 #define DRIVER_TMC_STEPPER                // use TMCStepper library
 #define FRAM_WRITE_WAIT 0                 // fast writes into FRAM are ok
@@ -103,9 +103,9 @@
 #define ENCODER_ECM_LOW_PASS_ORDER 5
 #define ENCODER_ECM_LOW_PASS_POINTS 20
 
-#define AXIS1_ENCODER           JTW_24BIT
-#define AXIS1_ENCODER_REVERSE          ON //
-#define AXIS1_ENCODER_COUNTS_PER_DEGREE 46603.377778
+#define AXIS1_ENCODER         AS37_H39B_B
+#define AXIS1_ENCODER_REVERSE         OFF //
+#define AXIS1_ENCODER_COUNTS_PER_DEGREE 23301.688888
 #define AXIS1_MOTOR_STEPS_PER_DEGREE 25600 // 
 #define AXIS1_SYNC_THRESHOLD_DEGREES  5.0 // in degrees (converts to _SYNC_THRESHOLD)
 #define AXIS1_TARGET_TOLERANCE        5.0 // in arc-seconds
@@ -119,16 +119,16 @@
 #define AXIS1_SERVO_FLTR_MEAS_U         8
 #define AXIS1_SERVO_FLTR_VARIANCE    0.25
 #define AXIS1_PID_SENSITIVITY           0 // in % power to using 100% of pid set two (_GOTO)
-#define AXIS1_PID_P                   0.5 // P = proportional
-#define AXIS1_PID_I                   0.1 // I = integral
-#define AXIS1_PID_D                 0.001 // D = derivative
-#define AXIS1_PID_P_GOTO             0.25 // P = proportional
-#define AXIS1_PID_I_GOTO             0.02 // I = integral
-#define AXIS1_PID_D_GOTO            0.001 // D = derivative
+#define AXIS1_PID_P                   3.0 // P = proportional
+#define AXIS1_PID_I                   1.0 // I = integral
+#define AXIS1_PID_D                   0.0 // D = derivative
+#define AXIS1_PID_P_GOTO              1.0 // P = proportional
+#define AXIS1_PID_I_GOTO              0.0 // I = integral
+#define AXIS1_PID_D_GOTO              0.0 // D = derivative
 
-#define AXIS2_ENCODER           JTW_24BIT
-#define AXIS2_ENCODER_REVERSE          ON //
-#define AXIS2_ENCODER_COUNTS_PER_DEGREE 46603.377778
+#define AXIS2_ENCODER         AS37_H39B_B
+#define AXIS2_ENCODER_REVERSE         OFF //
+#define AXIS2_ENCODER_COUNTS_PER_DEGREE 23301.688888
 #define AXIS2_MOTOR_STEPS_PER_DEGREE 25600 // 
 #define AXIS2_SYNC_THRESHOLD_DEGREES  5.0 // in degrees (converts to _SYNC_THRESHOLD)
 #define AXIS2_TARGET_TOLERANCE        5.0 // in arc-seconds
@@ -140,12 +140,12 @@
 #define AXIS2_SERVO_FLTR_MEAS_U         8
 #define AXIS2_SERVO_FLTR_VARIANCE    0.25
 #define AXIS2_PID_SENSITIVITY           0 // in % power to using 100% of pid set two (_GOTO)
-#define AXIS2_PID_P                   0.5 // P = proportional
-#define AXIS2_PID_I                   0.1 // I = integral
-#define AXIS2_PID_D                 0.001 // D = derivative
-#define AXIS2_PID_P_GOTO             0.25 // P = proportional
-#define AXIS2_PID_I_GOTO             0.02 // I = integral
-#define AXIS2_PID_D_GOTO            0.001 // D = derivative
+#define AXIS2_PID_P                   3.0 // P = proportional
+#define AXIS2_PID_I                   1.0 // I = integral
+#define AXIS2_PID_D                   0.0 // D = derivative
+#define AXIS2_PID_P_GOTO              1.0 // P = proportional
+#define AXIS2_PID_I_GOTO              0.0 // I = integral
+#define AXIS2_PID_D_GOTO              0.0 // D = derivative
 
 
 // ------------------------------------------------------------------------------------------------------------
@@ -263,7 +263,7 @@
 
 // GUIDING BEHAVIOUR ------------------------------------------ see https://onstep.groups.io/g/main/wiki/Configuration_Mount#GUIDING
 #define GUIDE_TIME_LIMIT                0 //     10, n. Time limit n=0..120 seconds. Use 0 to disable.                        Adjust
-#define GUIDE_DISABLE_BACKLASH        OFF //    OFF, Disable backlash takeup during guiding at <= 1X.                         Option
+#define GUIDE_DISABLE_BACKLASH         ON //    OFF, Disable backlash takeup during guiding at <= 1X.                         Option
 
 // LIMITS ------------------------------------------------------ see https://onstep.groups.io/g/main/wiki/Configuration_Mount#LIMITS
 #define LIMIT_SENSE                   OFF //    OFF, HIGH or LOW state on limit sense switch stops movement.                  Option
@@ -302,8 +302,8 @@
 #define GOTO_OFFSET                   0.0 //   0.25, Offset in deg's for goto target unidirectional approach, 0.0 disables    Adjust
 #define GOTO_OFFSET_ALIGN             OFF //    OFF, ON skips final phase of goto for align stars so user tends to approach   Option
                                           //         from the correct direction when centering.
-#define GOTO_REFINE_STAGES              2 //         Stages to added to goto for final target coordinate update from encoders Option
-#define GOTO_SETTLE_TIME             3000 //         Time to wait for servo positions to settle, in milliseconds              Option
+#define GOTO_REFINE_STAGES              0 //         Stages to added to goto for final target coordinate update from encoders Option
+#define GOTO_SETTLE_TIME             1000 //         Time to wait for servo positions to settle, in milliseconds              Option
 
 // PIER SIDE BEHAVIOUR --------------------------------------- see https://onstep.groups.io/g/main/wiki/Configuration_Mount#PIERSIDE
 #define MFLIP_SKIP_HOME                ON //    OFF, ON Goto directly to the destination without visiting home position.      Option
