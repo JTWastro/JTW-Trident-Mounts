@@ -1,5 +1,6 @@
-This folder contains tools to upload the firmware to a JTW Manticore controller. If in doubt please contact us - info@jtwastronomy.com
+This folder contains tools to upload the Trident firmware to a JTW Manticore controller. If in doubt please contact us - info@jtwastronomy.com
 
+Manticore directory - 
 GTR Homing
 This is for Trident GTR mounts with homing, no encoders
 
@@ -18,5 +19,5 @@ Manticore controller in all forms, basic firmware used for internal testing and 
 Factory Reset
 This firmware will completely wipe the controller. Important: Allow 5 minutes after power cycling for the controller to fully erase itself, both the OnStepX MCU and Smart Webserver MCU must be flashed for a full erase.
 
-SmartHandController
+Smart Hand Controller
 Firmware for the wireless hand controller.
