@@ -17,3 +17,6 @@ Manticore controller in all forms, basic firmware used for internal testing and 
 
 Factory Reset
 This firmware will completely wipe the controller. Important: Allow 5 minutes after power cycling for the controller to fully erase itself, both the OnStepX MCU and Smart Webserver MCU must be flashed for a full erase.
+
+SmartHandController
+Firmware for the wireless hand controller.
