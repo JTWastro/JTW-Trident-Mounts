@@ -16,7 +16,7 @@
 // =================================================================================================================================
 // CONTROLLER ======================================================================================================================
 
-#define CONFIG_NAME "JTW Trident GTR"
+#define CONFIG_NAME "JTW Trident P75 (Manticore)"
 
 #define DRIVER_TMC_STEPPER                // use TMCStepper library
 #define FRAM_WRITE_WAIT 0                 // fast writes into FRAM are ok
@@ -38,7 +38,7 @@
 #define STA_SN_MASK       {255,255,255,0} // ..55,255,0}, Wifi Station/Ethernet SUBNET Mask.                                  Adjust
 #define DISPLAY_WEATHER                ON // website, display weather
 #define DISPLAY_INTERNAL_TEMPERATURE   ON // website, display internal MCU temperature
-#define HOME_SWITCH_DIRECTION_CONTROL  ON // website, display home switch reversal
+#define HOME_SWITCH_DIRECTION_CONTROL OFF // website, display home switch reversal
 
 // PINMAP ------------------------------------------------- see https://onstep.groups.io/g/main/wiki/Configuration_Controller#PINMAP
 #define PINMAP                  MANTICORE //    OFF, Choose from: MiniPCB, MiniPCB2, MaxPCB2, MaxESP3, CNC3, STM32Blue,      <-Req'd
@@ -91,7 +91,7 @@
 #define AXIS1_LIMIT_MAX               180 //    180, n. Where n=  90.. 360 (degrees.) Maximum "Hour Angle" or Azimuth.        Adjust
 
 #define AXIS1_DRIVER_MICROSTEPS       256 //    OFF, n. Microstep mode when tracking.                                        <-Req'd
-#define AXIS1_DRIVER_MICROSTEPS_GOTO   32 //    OFF, n. Microstep mode used during slews. OFF uses _DRIVER_MICROSTEPS.        Option
+#define AXIS1_DRIVER_MICROSTEPS_GOTO   64 //    OFF, n. Microstep mode used during slews. OFF uses _DRIVER_MICROSTEPS.        Option
 
 // for TMC2130, TMC5160, TMC2209, TMC2226 STEP/DIR driver models:
 #define AXIS1_DRIVER_IHOLD           1000 //    OFF, n, (mA.) Current during standstill. OFF uses IRUN/2.0                    Option
@@ -106,7 +106,7 @@
 
 #define AXIS1_POWER_DOWN              OFF //    OFF, ON Powers off 30sec after movement stops or 10min after last<=1x guide.  Infreq
 
-#define AXIS1_SENSE_HOME             HIGH //    OFF, HIGH or LOW enables & state clockwise home position, as seen from front. Option
+#define AXIS1_SENSE_HOME              OFF //    OFF, HIGH or LOW enables & state clockwise home position, as seen from front. Option
 #define AXIS1_SENSE_HOME_OFFSET         0 //      0, Default offset in arc-seconds to home from the sense position.           Option
 #define HOME_OFFSET_RANGE_AXIS1    648000 //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
 #define AXIS1_SENSE_LIMIT_MIN LIMIT_SENSE // ...NSE, HIGH or LOW state on limit sense switch stops movement.                  Option
@@ -128,7 +128,7 @@
 #define AXIS2_LIMIT_MAX                90 //     90, n. Where n=0..90 (degrees.) Maximum allowed Declination or Altitude.     Infreq
 
 #define AXIS2_DRIVER_MICROSTEPS       256 //    OFF, n. Microstep mode when tracking.                                        <-Req'd
-#define AXIS2_DRIVER_MICROSTEPS_GOTO   32 //    OFF, n. Microstep mode used during slews. OFF uses _DRIVER_MICROSTEPS.        Option
+#define AXIS2_DRIVER_MICROSTEPS_GOTO   64 //    OFF, n. Microstep mode used during slews. OFF uses _DRIVER_MICROSTEPS.        Option
 
 // for TMC2130, TMC5160, TMC2209, TMC2226 STEP/DIR driver models:
 #define AXIS2_DRIVER_IHOLD           1000 //    OFF, n, (mA.) Current during standstill. OFF uses IRUN/2.0                    Option
@@ -143,7 +143,7 @@
 
 #define AXIS2_POWER_DOWN              OFF //    OFF, ON Powers off 30sec after movement stops or 10min after last<=1x guide.  Option
 
-#define AXIS2_SENSE_HOME             HIGH //    OFF, HIGH or LOW enables & state clockwise home position, as seen from above. Option
+#define AXIS2_SENSE_HOME              OFF //    OFF, HIGH or LOW enables & state clockwise home position, as seen from above. Option
 #define AXIS2_SENSE_HOME_OFFSET         0 //      0, Default offset in arc-seconds to home from the sense position.           Option
 #define HOME_OFFSET_RANGE_AXIS2    648000 //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
 #define AXIS2_SENSE_LIMIT_MIN LIMIT_SENSE // ...NSE, HIGH or LOW state on limit sense switch stops movement.                  Option
@@ -213,7 +213,7 @@
 #define PEC_STEPS_PER_WORM_ROTATION 102400 //     0, n. Steps per worm rotation (0 disables else 720 sec buffer allocated.)  <-Req'd
                                           //         n = (AXIS1_STEPS_PER_DEGREE*360)/reduction_final_stage
 
-#define PEC_SENSE LOW|THLD(360)|HYST(120) //    OFF, HIGH. Senses the PEC signal rising edge or use LOW for falling edge.     Option
+#define PEC_SENSE                     OFF //    OFF, HIGH. Senses the PEC signal rising edge or use LOW for falling edge.     Option
                                           //         Ignored in ALTAZM mode.
 #define PEC_BUFFER_SIZE_LIMIT         960 //    720, Seconds of PEC buffer allowed.                                           Infreq
 
