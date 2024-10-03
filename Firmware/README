@@ -1,0 +1,19 @@
+This folder contains tools to upload the firmware to a JTW Manticore controller. If in doubt please contact us - info@jtwastronomy.com
+
+GTR Homing
+This is for Trident GTR mounts with homing, no encoders
+
+GTR 24b
+Trident GTR with 24 bit absolute encoders and Trident P75 modified with 24 bit absolute encoders
+
+GTR 26b
+Trident GTR with 26 bit absolute encoders and Trident P75 modified with 26 bit absolute encoders
+
+Trident 23b
+Trident P75 modified with 23 bit encoders
+
+Manticore Retrofit Controller
+Manticore controller in all forms, basic firmware used for internal testing and to confirm proper operation before flashing to your own application. 
+
+Factory Reset
+This firmware will completely wipe the controller. Important: Allow 5 minutes after power cycling for the controller to fully erase itself, both the OnStepX MCU and Smart Webserver MCU must be flashed for a full erase.
