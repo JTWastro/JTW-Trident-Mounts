@@ -15,6 +15,7 @@
 // For Wifi successful startup an AP will appear with an SSID of "ONSTEP", after connecting: the web-site is at "192.168.0.1" and
 // the cmd channel is at "192.168.0.1:9999". If locked out selecting "Erase Flash: All Flash Contents" from the Arduino Tools menu 
 // before uploading/flashing again can help restore access to the ESP8266.
+#define HOST_NAME            "OnStep-SWS" // p-SWS", This devices name up to 16 chars (collapses to mDNS name "onstepsws".)   Adjust
 
 //      Parameter Name              Value   Default  Notes                                                                      Hint
 // OPERATIONAL MODE ----------------------------------------------------------------------------------------------------------------
@@ -46,6 +47,7 @@
 #define HOME_SWITCH_DIRECTION_CONTROL  ON // website, display home switch reversal
 #define HOME_OFFSET_RANGE_AXIS1    648000 //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
 #define HOME_OFFSET_RANGE_AXIS2    648000 //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
+#define DISPLAY_HIGH_PRECISION_COORDS  ON //
 
 // ENCODER SUPPORT -----------------------------------------------------------------------------------------------------------------
 // Some of these settings are stored in NV (EEPROM) as the default values when first uploaded.  Later changes below may be

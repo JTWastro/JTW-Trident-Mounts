@@ -17,10 +17,11 @@
 // CONTROLLER ======================================================================================================================
 
 #define CONFIG_NAME "JTW Trident GTR 24-bit"
-
+#define HOST_NAME                "OnStep" // nStep", Hostname for this device up to 16 chars.                                 Adjust
+#define MDNS_SERVER                    ON // 
 #define DRIVER_TMC_STEPPER                // use TMCStepper library
 #define FRAM_WRITE_WAIT 0                 // fast writes into FRAM are ok
-#define GPIO_DEVICE SWS                   // activate external GPIO device on SWS
+#define GPIO_DEVICE                   SWS // activate external GPIO device on SWS
 #define AP_ENABLED                   true //
 #define AP_SSID                 "OnStepX" // set WiFi SSID name
 #define AP_PASSWORD            "password" //  "password", Wifi Access Point password.                                         Adjust
@@ -106,21 +107,17 @@
 #define AXIS1_ENCODER           JTW_24BIT
 #define AXIS1_ENCODER_REVERSE          ON //
 #define AXIS1_ENCODER_COUNTS_PER_DEGREE 46603.377778
-#define AXIS1_MOTOR_STEPS_PER_DEGREE 25600 // 
+#define AXIS1_MOTOR_STEPS_PER_DEGREE 25600 // Trident drives are +/- 0.01% so +/- 2.56 counts
 #define AXIS1_SYNC_THRESHOLD_DEGREES  5.0 // in degrees (converts to _SYNC_THRESHOLD)
 #define AXIS1_TARGET_TOLERANCE        5.0 // in arc-seconds
 #define AXIS1_SERVO_ACCELERATION      100 // acceleration, in %/s of AXIS1_SERVO_VELOCITY_MAX
-#define AXIS1_SERVO_VELOCITY_MAX_DPS 10.0 // in degrees per second at 100% power (converts to _SERVO_VELOCITY_MAX)
-#define AXIS1_SERVO_VELOCITY_FACTOR frequency*(AXIS1_MOTOR_STEPS_PER_DEGREE/AXIS1_ENCODER_COUNTS_PER_DEGREE) // encoder cps to motor sps
 #define AXIS1_SERVO_VELOCITY_PWMTHRS ((AXIS1_MOTOR_STEPS_PER_DEGREE*3)/240) // in 256x steps per second
-#define AXIS1_SERVO_VELOCITY_TRACKING (AXIS1_MOTOR_STEPS_PER_DEGREE/240.0)  // in 256x steps per second
-#define AXIS1_SERVO_VELOCITY_CALIBRATION 32.0 // calibrate at 32x AXIS1_SERVO_VELOCITY_TRACKING
 #define AXIS1_SERVO_FLTR           KALMAN 
-#define AXIS1_SERVO_FLTR_MEAS_U         8
-#define AXIS1_SERVO_FLTR_VARIANCE    0.25
+#define AXIS1_SERVO_FLTR_MEAS_U       100
+#define AXIS1_SERVO_FLTR_VARIANCE     0.1
 #define AXIS1_PID_SENSITIVITY           0 // in % power to using 100% of pid set two (_GOTO)
 #define AXIS1_PID_P                   3.0 // P = proportional
-#define AXIS1_PID_I                   1.0 // I = integral
+#define AXIS1_PID_I                   0.0 // I = integral
 #define AXIS1_PID_D                   0.0 // D = derivative
 #define AXIS1_PID_P_GOTO              1.0 // P = proportional
 #define AXIS1_PID_I_GOTO              0.0 // I = integral
@@ -129,19 +126,17 @@
 #define AXIS2_ENCODER           JTW_24BIT
 #define AXIS2_ENCODER_REVERSE          ON //
 #define AXIS2_ENCODER_COUNTS_PER_DEGREE 46603.377778
-#define AXIS2_MOTOR_STEPS_PER_DEGREE 25600 // 
+#define AXIS2_MOTOR_STEPS_PER_DEGREE 25600 // Trident drives are +/- 0.01% so +/- 2.56 counts
 #define AXIS2_SYNC_THRESHOLD_DEGREES  5.0 // in degrees (converts to _SYNC_THRESHOLD)
 #define AXIS2_TARGET_TOLERANCE        5.0 // in arc-seconds
 #define AXIS2_SERVO_ACCELERATION      100 // acceleration, in %/s of AXIS1_SERVO_VELOCITY_MAX
-#define AXIS2_SERVO_VELOCITY_MAX_DPS 10.0 // in degrees per second at 100% power (converts to _SERVO_VELOCITY_MAX)
-#define AXIS2_SERVO_VELOCITY_FACTOR frequency*(AXIS2_MOTOR_STEPS_PER_DEGREE/AXIS2_ENCODER_COUNTS_PER_DEGREE) // encoder cps to motor sps
 #define AXIS2_SERVO_VELOCITY_PWMTHRS ((AXIS2_MOTOR_STEPS_PER_DEGREE*3)/240) // in 256x steps per second
 #define AXIS2_SERVO_FLTR           KALMAN 
-#define AXIS2_SERVO_FLTR_MEAS_U         8
-#define AXIS2_SERVO_FLTR_VARIANCE    0.25
+#define AXIS2_SERVO_FLTR_MEAS_U       100
+#define AXIS2_SERVO_FLTR_VARIANCE     0.1
 #define AXIS2_PID_SENSITIVITY           0 // in % power to using 100% of pid set two (_GOTO)
 #define AXIS2_PID_P                   3.0 // P = proportional
-#define AXIS2_PID_I                   1.0 // I = integral
+#define AXIS2_PID_I                   0.0 // I = integral
 #define AXIS2_PID_D                   0.0 // D = derivative
 #define AXIS2_PID_P_GOTO              1.0 // P = proportional
 #define AXIS2_PID_I_GOTO              0.0 // I = integral
@@ -158,13 +153,17 @@
 
 // If runtime axis settings are enabled changes in the section below will be ignored (disable in SWS or by wiping NV/EEPROM):
 // \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ 
-#define AXIS1_STEPS_PER_DEGREE AXIS1_ENCODER_COUNTS_PER_DEGREE // 6400.0, n. Number of steps per degree:                     <-Req'd
+// AXIS1_COUNTS_PER_DEGREE drives AxisSettings/GOTO/limits math and must be the real encoder resolution.
+#define AXIS1_COUNTS_PER_DEGREE AXIS1_ENCODER_COUNTS_PER_DEGREE
+// For SERVO_TMC2209, AXIS1_STEPS_PER_DEGREE is used only to derive countsToStepsRatio (Mount.axis.cpp: AXIS1_STEPS_PER_DEGREE/AXIS1_COUNTS_PER_DEGREE)
+// so it must be the physical motor's real microstep resolution, not the encoder value, or the ratio comes out as 1.0 instead of ~0.549335.
+#define AXIS1_STEPS_PER_DEGREE AXIS1_MOTOR_STEPS_PER_DEGREE // 6400.0, n. Number of steps per degree:                       <-Req'd
                                           //         n = (stepper_steps * micro_steps * overall_gear_reduction)/360.0
 #define AXIS1_REVERSE                 OFF //    OFF, ON Reverses movement direction, or reverse wiring instead to correct.   <-Often
-#define AXIS1_LIMIT_MIN              -180 //   -180, n. Where n= -90..-360 (degrees.) Minimum "Hour Angle" or Azimuth.        Adjust
-#define AXIS1_LIMIT_MAX               180 //    180, n. Where n=  90.. 360 (degrees.) Maximum "Hour Angle" or Azimuth.        Adjust
+#define AXIS1_LIMIT_MIN              -270 //   -180, n. Where n= -90..-360 (degrees.) Minimum "Hour Angle" or Azimuth.        Adjust
+#define AXIS1_LIMIT_MAX               270 //    180, n. Where n=  90.. 360 (degrees.) Maximum "Hour Angle" or Azimuth.        Adjust
 
-#define AXIS1_DRIVER_MICROSTEPS       OFF //    OFF, n. Microstep mode when tracking.                                        <-Req'd
+#define AXIS1_DRIVER_MICROSTEPS       256 //    OFF, n. Microstep mode when tracking.                                        <-Req'd
 #define AXIS1_DRIVER_MICROSTEPS_GOTO  OFF //    OFF, n. Microstep mode used during slews. OFF uses _DRIVER_MICROSTEPS.        Option
 
 // for TMC2130, TMC5160, TMC2209, TMC2226 STEP/DIR driver models:
@@ -199,7 +198,7 @@
 #define AXIS2_LIMIT_MIN               -90 //    -90, n. Where n=-90..0 (degrees.) Minimum allowed Declination or Altitude.    Infreq
 #define AXIS2_LIMIT_MAX                90 //     90, n. Where n=0..90 (degrees.) Maximum allowed Declination or Altitude.     Infreq
 
-#define AXIS2_DRIVER_MICROSTEPS       OFF //    OFF, n. Microstep mode when tracking.                                        <-Req'd
+#define AXIS2_DRIVER_MICROSTEPS       256 //    OFF, n. Microstep mode when tracking.                                        <-Req'd
 #define AXIS2_DRIVER_MICROSTEPS_GOTO  OFF //    OFF, n. Microstep mode used during slews. OFF uses _DRIVER_MICROSTEPS.        Option
 
 // for TMC2130, TMC5160, TMC2209, TMC2226 STEP/DIR driver models:
@@ -267,8 +266,6 @@
 
 // LIMITS ------------------------------------------------------ see https://onstep.groups.io/g/main/wiki/Configuration_Mount#LIMITS
 #define LIMIT_SENSE                   OFF //    OFF, HIGH or LOW state on limit sense switch stops movement.                  Option
-#define LIMIT_STRICT                  OFF //    OFF, disables limits until unpark goto or sync. ON enables limits at startup. Option
-                                          //         note that ON also disables all motion until date/time are set.
 
 // PARKING ---------------------------------------------------- see https://onstep.groups.io/g/main/wiki/Configuration_Mount#PARKING
 #define PARK_SENSE                    OFF //    OFF, HIGH or LOW state indicates mount is in the park orientation.            Option
@@ -312,8 +309,8 @@
 #define MFLIP_PAUSE_HOME_DEFAULT      OFF //    OFF, ON Start with meridian flip pause at home enabed.                        Infreq
 #define MFLIP_PAUSE_HOME_MEMORY        ON //    OFF, ON Remember meridian flip pause at home setting across power cycles.     Infreq
 
-#define PIER_SIDE_SYNC_CHANGE_SIDES   OFF //    OFF, ON Allows sync to change pier side, for GEM mounts.                      Option
-#define PIER_SIDE_PREFERRED_DEFAULT  EAST //   BEST, BEST Stays on current side if possible. EAST or WEST switch if possible. Option
+#define PIER_SIDE_SYNC_CHANGE_SIDES    ON //    OFF, ON Allows sync to change pier side, for GEM mounts.                      Option
+#define PIER_SIDE_PREFERRED_DEFAULT  BEST //   BEST, BEST Stays on current side if possible. EAST or WEST switch if possible. Option
 #define PIER_SIDE_PREFERRED_MEMORY     ON //    OFF, ON Remember preferred pier side setting across power cycles.             Option
 
 // ALIGN -------------------------------------------------------- see https://onstep.groups.io/g/main/wiki/Configuration_Mount#ALIGN
