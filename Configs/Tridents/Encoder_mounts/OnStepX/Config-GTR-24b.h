@@ -192,7 +192,10 @@
 
 // If runtime axis settings are enabled changes in the section below will be ignored (disable in SWS or by wiping NV/EEPROM):
 // \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
-#define AXIS2_STEPS_PER_DEGREE AXIS2_ENCODER_COUNTS_PER_DEGREE // 6400.0, n. Number of steps per degree:                     <-Req'd
+#define AXIS2_COUNTS_PER_DEGREE AXIS2_ENCODER_COUNTS_PER_DEGREE 
+// For SERVO_TMC2209, AXIS1_STEPS_PER_DEGREE is used only to derive countsToStepsRatio (Mount.axis.cpp: AXIS1_STEPS_PER_DEGREE/AXIS1_COUNTS_PER_DEGREE)
+// so it must be the physical motor's real microstep resolution, not the encoder value, or the ratio comes out as 1.0 instead of ~0.549335.
+#define AXIS2_STEPS_PER_DEGREE AXIS2_MOTOR_STEPS_PER_DEGREE // 6400.0, n. Number of steps per degree:                       <-Req'd
                                           //         n = (stepper_steps * micro_steps * overall_gear_reduction)/360.0
 #define AXIS2_REVERSE                 OFF //    OFF, ON Reverses movement direction, or reverse wiring instead to correct.   <-Often
 #define AXIS2_LIMIT_MIN               -90 //    -90, n. Where n=-90..0 (degrees.) Minimum allowed Declination or Altitude.    Infreq
