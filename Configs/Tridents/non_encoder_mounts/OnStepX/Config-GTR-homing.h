@@ -21,7 +21,7 @@
 #define MDNS_SERVER                    ON // 
 #define DRIVER_TMC_STEPPER                // use TMCStepper library
 #define FRAM_WRITE_WAIT 0                 // fast writes into FRAM are ok
-#define GPIO_DEVICE SWS                   // activate external GPIO device on SWS
+#define GPIO_DEVICE                   SWS // activate external GPIO device on SWS
 #define AP_ENABLED                   true //
 #define AP_SSID                 "OnStepX" // set WiFi SSID name
 #define AP_PASSWORD            "password" //  "password", Wifi Access Point password.                                         Adjust
