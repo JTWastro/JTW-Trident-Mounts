@@ -39,9 +39,18 @@
 #define STA_SN_MASK       {255,255,255,0} // ..55,255,0}, Wifi Station/Ethernet SUBNET Mask.                                  Adjust
 #define DISPLAY_WEATHER                ON // website, display weather
 #define DISPLAY_INTERNAL_TEMPERATURE   ON // website, display internal MCU temperature
+#define DISPLAY_WIFI_SIGNAL_STRENGTH   ON //     ON, Wireless signal strength reported via web interface. OFF otherwise.      Option
+#define DISPLAY_RESET_CONTROLS         ON //    OFF, ON allows reset if supported, FWU for STM32 firmware upload pin HIGH.    Option
+#define DISPLAY_COORDINATE_ORIGIN      ON //    OFF, ON to display the coordinate origin control tile on the mount page.      Option
+
 #define DISPLAY_SERVO_MONITOR          ON // website, display servo monitor
+#define DISPLAY_STALLGUARD_MONITOR     ON //    OFF, ON to display the StallGuard monitor for OnStepX (any axis.)             Option
 #define DISPLAY_SERVO_ORIGIN_CONTROLS  ON // website, display servo absolute encoder origin controls
 #define DISPLAY_SERVO_CALIBRATION      ON // website, display servo RA axis calibration controls
+#define HOME_SWITCH_DIRECTION_CONTROL OFF // website, display home switch reversal
+#define HOME_OFFSET_RANGE_AXIS1    648000 //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
+#define HOME_OFFSET_RANGE_AXIS2    648000 //    7200, allow adjusting home offset up to +/- 2 degrees                         Infreq
+#define DISPLAY_HIGH_PRECISION_COORDS  ON //
 
 
 // PINMAP ------------------------------------------------- see https://onstep.groups.io/g/main/wiki/Configuration_Controller#PINMAP
